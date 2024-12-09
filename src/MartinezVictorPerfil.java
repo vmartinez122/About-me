@@ -28,4 +28,8 @@ public class MartinezVictorPerfil {
                 "Foods:" + Arrays.toString(foods) +'\n' +
                 "Fun facts:" + Arrays.toString(funFacts) +'\n';
     }
+
+    public String getName() {
+        return name;
+    }
 }
