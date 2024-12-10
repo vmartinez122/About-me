@@ -32,17 +32,17 @@ public class MartinezVictorPerfil {
         return name;
     }
 
-
     //Getter historia del perfil
     public String getStory() {
         return story;
     }
 
-    //Muestra los hobbies del perfil en un solo string
+    //Devuelve los hobbies del perfil en un solo string
     public String getHobbies() {
         return loopArray(hobbies);
     }
-    //Muestra la comida favorita del perfil en un solo string
+
+    //Devuelve la comida favorita del perfil en un solo string
     public String getFoods() {
         return loopArray(foods);
     }
@@ -65,10 +65,9 @@ public class MartinezVictorPerfil {
         return out;
     }
 
-
     //Devuelve un "fun fact" aleatorio, escogiendo una posición del array entre 0 y la longitud del array (excluida)
     public String getRandFact(){
-        Random rand = new Random();
+        Random rand = new Random(); //Constructor clase Random
         return funFacts[rand.nextInt(0, funFacts.length)];
     }
 

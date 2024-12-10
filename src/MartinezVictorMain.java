@@ -43,7 +43,8 @@ public class MartinezVictorMain {
                             """
             ); //Utilizamos el getter de name para mostrar el nombre del perfil por el que queremos navegar
 
-            switch (intFromConsole(1, 4)){ //Para navegar por el case, llamamos al método
+            switch (intFromConsole(1, 4)){ //Para navegar por el case, llamamos al método intFromConsole, que se encarga de
+                // pedir un input al usuario y verificar que sea válido
                 case 1: //Muestra la historia del perfil
                     System.out.println(ANSI_YELLOW+"Story:"+ANSI_RESET);
                     System.out.println(perfil.getStory());
