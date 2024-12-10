@@ -32,4 +32,33 @@ public class MartinezVictorPerfil {
     public String getName() {
         return name;
     }
+
+    //Muestra la historia del perfil por pantalla
+    public void showStory(){
+        System.out.println(story);
+    }
+
+    //Muestra los hobbies y comidas favoritas del perfil por pantalla
+    public void showFavourites(){
+        System.out.println("Hobbies: "+loopArray(hobbies));
+        System.out.println("Foods: "+loopArray(foods));
+    }
+
+    /**
+     * Itera sobre un array de Strings para devolver una cadena de texto separada por comas
+     * @param array Array que se quiere mostrar
+     * @return String del contenido del array concatenado
+     */
+    public String loopArray(String[] array){
+        String out=""; //Variable que devolvemos. Necesita ser inicializada
+        for (int i=0; i < array.length; i++){
+            if (i != array.length-1){
+                out=out.concat(array[i]+","); //La función concat(), añade el string que introducimos como parámetro
+                // al final del objeto string que llama a la función. En este caso, añadimos el contenido de la iteración del array
+            }else {
+                out=out.concat(array[i]); //El último elemento no requiere de una coma al final
+            }
+        }
+        return out;
+    }
 }

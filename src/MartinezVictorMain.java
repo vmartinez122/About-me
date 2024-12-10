@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MartinezVictorMain {
     Scanner input = new Scanner(System.in);
     final static String ANSI_RED = "\u001B[31m"; //Color rojo
+    final static String ANSI_YELLOW = "\u001B[33m"; //Color amarillo
     final static String ANSI_RESET = "\u001B[0m"; //Devolver color predeterminado
 
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class MartinezVictorMain {
     }
 
     private void inicio(){
-        MartinezVictorPerfil miPerfil = new MartinezVictorPerfil(
+        MartinezVictorPerfil miPerfil = new MartinezVictorPerfil( //Llamamos al constructor de Perfil, con los datos correspondientes
                 "Victor Martinez",
                 "I hope they can brighten up someone's day.",
                 new String[]{"🎮","🗻","🧗‍♂️"},
@@ -21,8 +22,9 @@ public class MartinezVictorMain {
                         "Path of Exile is a good game.",
                         "Studying Web App Development."}
         );
-        System.out.println("Perfil creado:\n"+miPerfil);
-        menu(miPerfil);
+        System.out.println(ANSI_YELLOW+"Perfil creado:\n"+ANSI_RESET+miPerfil); //Podemos acceder directamente al método toString
+        // escribiendo el nombre del perfil dentro del String
+        menu(miPerfil); //Muestra el menú por pantalla
     }
 
     /**
@@ -31,41 +33,37 @@ public class MartinezVictorMain {
      *
      */
     private void menu(MartinezVictorPerfil perfil){
-        boolean exit = false;
+        boolean exit = false; //Variable que cierra el menú
         do {
-            /*
-            [1] Story: se mostrará al usuario la historia del perfil y se regresará al menú.
-            [2] Favorites: se mostrará al usuario los hobbies y foods del perfil y se regresará al menú
-            [3] Fun Fact: se mostrará al usuario uno de los fun facts del perfil (escogido de forma aleatoria) y se
-            regresarña al menú
-            [4] Salir: se terminará el programa
-             */
-            System.out.println("Menu AboutMe [" + perfil.getName() + "]\n" +"""
+            System.out.println(ANSI_YELLOW+"Menu AboutMe [" + perfil.getName() + "]\n"+ANSI_RESET+"""
                             [1] Story
                             [2] Favourites
                             [3] Fun Fact
                             [4] Salir
                             """
-            );
+            ); //Utilizamos el getter de name para
 
-            switch (intFromConsole(1, 4)){
-                case 1:
-                    System.out.println("Story");
+            switch (intFromConsole(1, 4)){ //Para navegar por el case, llamamos al método
+                case 1: //Muestra la historia del perfil
+                    System.out.println(ANSI_YELLOW+"Story:"+ANSI_RESET);
+                    perfil.showStory();
                     break;
-                case 2:
-                    System.out.println("Favourites");
+                case 2: //Muestra los hobbies y la comida favorita del perfil
+                    System.out.println(ANSI_YELLOW+"Favourites:"+ANSI_RESET);
+                    perfil.showFavourites();
                     break;
-                case 3:
-                    System.out.println("Fun fact");
+                case 3: //Muestra un fun fact aleatorio del perfil
+                    System.out.println(ANSI_YELLOW+"Fun fact:"+ANSI_RESET);
                     break;
-                case 4:
-                    System.out.println("Salir");
+                case 4: //Detiene el bucle del menú, y con este el programa
+                    System.out.println("Saliendo del programa...");
                     exit = true;
                     break;
                 default:
                     //Valor erróneo
                     break;
             }
+            System.out.println(); //Inserta separación
         }while(!exit);
     }
 
@@ -84,7 +82,7 @@ public class MartinezVictorMain {
                 }
             }
             input.nextLine(); //Limpiar búfer
-            System.out.println(ANSI_RED+"Error de formato. Introduce un número [" + min + " - " + max + "]"+ANSI_RESET);
+            System.out.println(ANSI_RED+"Opción inválida. Introduce un número [" + min + " - " + max + "]"+ANSI_RESET);
             return -1; //Si el número es inválido, el método devuelve -1, para que se vuelva a mostrar el menú
     }
 }
