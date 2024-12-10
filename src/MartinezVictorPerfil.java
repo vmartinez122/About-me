@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class MartinezVictorPerfil {
     private String name; //El nombre del perfil
@@ -7,11 +8,7 @@ public class MartinezVictorPerfil {
     private String[] foods; //Colección de comidas favoritas del perfil
     private String[] funFacts; //Colección de datos curiosos
 
-    /*
-    ** La clase deberá tener métodos para acceder a estos atributos y métodos que devuelvan la información
-    ** de manera formateada para que sea fácil de mostrar por consola la información.
-    */
-
+    //Constructor de la clase
     public MartinezVictorPerfil(String name, String story, String[] hobbies, String[] foods, String[] funFacts) {
         this.name = name;
         this.story = story;
@@ -20,6 +17,7 @@ public class MartinezVictorPerfil {
         this.funFacts = funFacts;
     }
 
+    //Devuelve el perfil en un formato legible por pantalla
     @Override
     public String toString() {
         return  name+'\n' +
@@ -29,19 +27,24 @@ public class MartinezVictorPerfil {
                 "Fun facts:" + Arrays.toString(funFacts) +'\n';
     }
 
+    //Getter del nombre del perfil
     public String getName() {
         return name;
     }
 
-    //Muestra la historia del perfil por pantalla
-    public void showStory(){
-        System.out.println(story);
+
+    //Getter historia del perfil
+    public String getStory() {
+        return story;
     }
 
-    //Muestra los hobbies y comidas favoritas del perfil por pantalla
-    public void showFavourites(){
-        System.out.println("Hobbies: "+loopArray(hobbies));
-        System.out.println("Foods: "+loopArray(foods));
+    //Muestra los hobbies del perfil en un solo string
+    public String getHobbies() {
+        return loopArray(hobbies);
+    }
+    //Muestra la comida favorita del perfil en un solo string
+    public String getFoods() {
+        return loopArray(foods);
     }
 
     /**
@@ -61,4 +64,12 @@ public class MartinezVictorPerfil {
         }
         return out;
     }
+
+
+    //Devuelve un "fun fact" aleatorio, escogiendo una posición del array entre 0 y la longitud del array (excluida)
+    public String getRandFact(){
+        Random rand = new Random();
+        return funFacts[rand.nextInt(0, funFacts.length)];
+    }
+
 }

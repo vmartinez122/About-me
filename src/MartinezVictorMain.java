@@ -6,7 +6,7 @@ public class MartinezVictorMain {
     final static String ANSI_YELLOW = "\u001B[33m"; //Color amarillo
     final static String ANSI_RESET = "\u001B[0m"; //Devolver color predeterminado
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //Utilizamos el método main únicamente para llamar al método de inicio
         MartinezVictorMain programa = new MartinezVictorMain();
         programa.inicio();
     }
@@ -41,19 +41,20 @@ public class MartinezVictorMain {
                             [3] Fun Fact
                             [4] Salir
                             """
-            ); //Utilizamos el getter de name para
+            ); //Utilizamos el getter de name para mostrar el nombre del perfil por el que queremos navegar
 
             switch (intFromConsole(1, 4)){ //Para navegar por el case, llamamos al método
                 case 1: //Muestra la historia del perfil
                     System.out.println(ANSI_YELLOW+"Story:"+ANSI_RESET);
-                    perfil.showStory();
+                    System.out.println(perfil.getStory());
                     break;
                 case 2: //Muestra los hobbies y la comida favorita del perfil
                     System.out.println(ANSI_YELLOW+"Favourites:"+ANSI_RESET);
-                    perfil.showFavourites();
+                    System.out.println("Hobbies: "+perfil.getHobbies()+'\n'+"Foods: "+perfil.getFoods());
                     break;
                 case 3: //Muestra un fun fact aleatorio del perfil
                     System.out.println(ANSI_YELLOW+"Fun fact:"+ANSI_RESET);
+                    System.out.println(perfil.getRandFact());
                     break;
                 case 4: //Detiene el bucle del menú, y con este el programa
                     System.out.println("Saliendo del programa...");
