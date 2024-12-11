@@ -75,7 +75,7 @@ public class MartinezVictorMain {
      * @param max Valor máximo de la integer
      * @return Integer validada, devuelve -1 si el input és inválido
      */
-    public int intFromConsole(int min, int max) {
+    private int intFromConsole(int min, int max) {
             if (input.hasNextInt()) {
                 int x = input.nextInt();
                 if (x >= min && x <= max) {
