@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class MartinezVictorMain {
     Scanner input = new Scanner(System.in);
-    final static String ANSI_RED = "\u001B[31m"; //Color rojo
-    final static String ANSI_YELLOW = "\u001B[33m"; //Color amarillo
-    final static String ANSI_RESET = "\u001B[0m"; //Devolver color predeterminado
+    final String ANSI_RED = "\u001B[31m"; //Color rojo
+    final String ANSI_YELLOW = "\u001B[33m"; //Color amarillo
+    final String ANSI_RESET = "\u001B[0m"; //Devolver color predeterminado
 
     public static void main(String[] args) { //Utilizamos el método main únicamente para llamar al método de inicio
         MartinezVictorMain programa = new MartinezVictorMain();
